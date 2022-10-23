@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+:root {
+  --color: #170d6c;
+  --primary-color: #c50ed2;
+  --secondary-color: #4072ff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color);
+  user-select: none;
+}
+
+body {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  height: 100vh;
+
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 95%;
+  max-width: 400px;
+  aspect-ratio: 4/6;
+  border-radius: 20px;
+
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  transform:perspective(1200px) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0));
+  transition: all 200ms ease;
+}
+
+.card-avatar {
+  position: relative;
+  width: 180px;
+  border-radius: 50%;
+  margin: 40px auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-avatar::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.card-avatar--img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-name {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card-desc {
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.card-list {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.card-list--item {
+  display: flex;
+  align-items: center;
+}
+
+.card-list--item:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.card-list--item img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.card-list--item a {
+  margin-left: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-list--item a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card-socials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+  gap: 12px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.card-socials a:hover {
+  opacity: 0.7;
+}
